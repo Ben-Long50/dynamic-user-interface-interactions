@@ -1,0 +1,28 @@
+#homepage-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1fr;
+  grid-template-rows: 1;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-color: black;
+  border-width: 2px;
+  padding: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
