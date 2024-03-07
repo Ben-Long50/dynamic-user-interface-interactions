@@ -785,6 +785,9 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /* harmony import */ var _styles_reset_css_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/reset-css.css */ "./src/styles/reset-css.css");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -793,17 +796,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/* eslint-disable no-new */
 
 
-var navBarItems = [];
-var NavBarItem = /*#__PURE__*/_createClass(function NavBarItem(name, menuOptions) {
-  _classCallCheck(this, NavBarItem);
+var weaponList = [];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weaponList);
+var Weapon = /*#__PURE__*/_createClass(function Weapon(name, options) {
+  _classCallCheck(this, Weapon);
   this.name = name;
-  this.menuOptions = menuOptions;
-  navBarItems.push(this);
-}); // eslint-disable-next-line no-new
-new NavBarItem('AR-15', ['Upper Receiver', 'Lower Receiver', 'Barrel', 'Bolt Carrier Group (BCG)', 'Charging Handle', 'Handguard', 'Stock', 'Pistol Grip', 'Trigger Group', 'Magazine']);
-console.log(navBarItems);
+  this.options = options;
+  weaponList.push(this);
+});
+new Weapon('Assault Rifles', ['AK-47', 'M16/M4', 'FN SCAR', 'Steyr AUG', 'Heckler & Koch G36', 'SIG SG 550', 'FAMAS', 'QBZ-95', 'Galil ACE', 'CZ Bren 2']);
+new Weapon('Sniper Rifles', ['Accuracy International Arctic Warfare', 'Barrett M82/M107', 'Sako TRG', 'Remington 700', 'Dragunov SVD', 'CheyTac Intervention', 'Steyr SSG', 'Heckler & Koch PSG1', 'Springfield M1903', 'Mauser SP66']);
+new Weapon('Submachine Guns', ['Heckler & Koch MP5', 'Uzi', 'MAC-10', 'FN P90', 'Heckler & Koch UMP', 'Steyr TMP', 'PP-19 Bizon', 'MP7', 'MP9', 'Scorpion EVO 3']);
+new Weapon('Pistols', ['Glock 17', 'SIG Sauer P226', 'Beretta 92/M9', 'Smith & Wesson M&P', 'Heckler & Koch USP', 'CZ 75', 'FN Five-seveN', 'Walther PPK', 'Colt M1911', 'Browning Hi-Power']);
 })();
 
 /******/ })()

@@ -26,13 +26,16 @@ export function getNavItems() {
     const menuItems = item.querySelectorAll('.menu-item');
     const menuItemArray = Array.from(menuItems);
     item.addEventListener('mouseover', () => {
-      menuItemArray.forEach((element) => {
+      menuItemArray.forEach((element, index) => {
+        const topPosition = `${(index + 1) * 100}%`;
+        element.style.top = topPosition;
         element.classList.remove('hidden');
         element.classList.add('visible');
       });
     });
     item.addEventListener('mouseleave', () => {
       menuItemArray.forEach((element) => {
+        element.style.top = '';
         element.classList.remove('visible');
         element.classList.add('hidden');
       });

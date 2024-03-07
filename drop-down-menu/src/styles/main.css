@@ -10,12 +10,15 @@ html {
 }
 
 #navbar-container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1fr;
   grid-template-rows: 1;
   align-items: center;
-  box-shadow: 0 2px 25px 5px;
+  gap: 10%;
+  --box-shadow: 0 0 25px 5px;
+  box-shadow: var(--box-shadow);
   z-index: 1;
 }
 
@@ -26,11 +29,25 @@ html {
 }
 
 .nav-item {
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 10px;
   text-align: center;
   padding: 20px;
+}
+
+.menu-item {
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: none;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1; /* Ensures submenu appears above other content */
+  box-shadow: 0 5px 10px 0;
 }
 
 .hidden {
