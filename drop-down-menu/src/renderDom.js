@@ -9,12 +9,15 @@ export function generateNavItems() {
     navItem.classList.add('nav-item');
     navItem.textContent = item.name;
     navBarContainer.appendChild(navItem);
+    const menuContainer = document.createElement('div');
+    menuContainer.classList.add('menu-container');
+    navItem.appendChild(menuContainer);
     for (let i = 0; i < item.options.length; i++) {
       const menuItem = document.createElement('li');
       menuItem.textContent = item.options[i];
       menuItem.classList.add('menu-item');
       menuItem.classList.add('hidden');
-      navItem.appendChild(menuItem);
+      menuContainer.appendChild(menuItem);
     }
   });
 }
@@ -27,17 +30,18 @@ export function getNavItems() {
     const menuItemArray = Array.from(menuItems);
     item.addEventListener('mouseover', () => {
       menuItemArray.forEach((element, index) => {
-        const topPosition = `${(index + 1) * 100}%`;
-        element.style.top = topPosition;
-        element.classList.remove('hidden');
-        element.classList.add('visible');
+        setTimeout(() => {
+          element.classList.remove('hidden');
+          element.classList.add('visible');
+        }, index * 15);
       });
     });
     item.addEventListener('mouseleave', () => {
-      menuItemArray.forEach((element) => {
-        element.style.top = '';
-        element.classList.remove('visible');
-        element.classList.add('hidden');
+      menuItemArray.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.remove('visible');
+          element.classList.add('hidden');
+        }, index * 15);
       });
     });
   });

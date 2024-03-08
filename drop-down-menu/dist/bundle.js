@@ -2,6 +2,103 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_reset_css_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/reset-css.css */ "./src/styles/reset-css.css");
+/* harmony import */ var _renderDom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renderDom */ "./src/renderDom.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/* eslint-disable no-new */
+
+
+
+var weaponList = [];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weaponList);
+var Weapon = /*#__PURE__*/_createClass(function Weapon(name, options) {
+  _classCallCheck(this, Weapon);
+  this.name = name;
+  this.options = options;
+  weaponList.push(this);
+});
+new Weapon('Assault Rifles', ['AK-47', 'M16/M4', 'FN SCAR', 'Steyr AUG', 'Heckler & Koch G36', 'SIG SG 550', 'FAMAS', 'QBZ-95', 'Galil ACE', 'CZ Bren 2']);
+new Weapon('Sniper Rifles', ['Accuracy International Arctic Warfare', 'Barrett M82/M107', 'Sako TRG', 'Remington 700', 'Dragunov SVD', 'CheyTac Intervention', 'Steyr SSG', 'Heckler & Koch PSG1', 'Springfield M1903', 'Mauser SP66']);
+new Weapon('Submachine Guns', ['Heckler & Koch MP5', 'Uzi', 'MAC-10', 'FN P90', 'Heckler & Koch UMP', 'Steyr TMP', 'PP-19 Bizon', 'MP7', 'MP9', 'Scorpion EVO 3']);
+new Weapon('Pistols', ['Glock 17', 'SIG Sauer P226', 'Beretta 92/M9', 'Smith & Wesson M&P', 'Heckler & Koch USP', 'CZ 75', 'FN Five-seveN', 'Walther PPK', 'Colt M1911', 'Browning Hi-Power']);
+(0,_renderDom__WEBPACK_IMPORTED_MODULE_2__.generateNavItems)();
+(0,_renderDom__WEBPACK_IMPORTED_MODULE_2__.getNavItems)();
+
+/***/ }),
+
+/***/ "./src/renderDom.js":
+/*!**************************!*\
+  !*** ./src/renderDom.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   generateNavItems: () => (/* binding */ generateNavItems),
+/* harmony export */   getNavItems: () => (/* binding */ getNavItems)
+/* harmony export */ });
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ "./src/index.js");
+
+var navBarContainer = document.querySelector('#navbar-container');
+
+// eslint-disable-next-line import/prefer-default-export
+function generateNavItems() {
+  ___WEBPACK_IMPORTED_MODULE_0__["default"].forEach(function (item) {
+    var navItem = document.createElement('ul');
+    navItem.classList.add('nav-item');
+    navItem.textContent = item.name;
+    navBarContainer.appendChild(navItem);
+    var menuContainer = document.createElement('div');
+    menuContainer.classList.add('menu-container');
+    navItem.appendChild(menuContainer);
+    for (var i = 0; i < item.options.length; i++) {
+      var menuItem = document.createElement('li');
+      menuItem.textContent = item.options[i];
+      menuItem.classList.add('menu-item');
+      menuItem.classList.add('hidden');
+      menuContainer.appendChild(menuItem);
+    }
+  });
+}
+function getNavItems() {
+  var navItems = document.querySelectorAll('.nav-item');
+  var navItemArray = Array.from(navItems);
+  navItemArray.forEach(function (item) {
+    var menuItems = item.querySelectorAll('.menu-item');
+    var menuItemArray = Array.from(menuItems);
+    item.addEventListener('mouseover', function () {
+      menuItemArray.forEach(function (element) {
+        element.classList.remove('hidden');
+        element.classList.add('visible');
+      });
+    });
+    item.addEventListener('mouseleave', function () {
+      menuItemArray.forEach(function (element) {
+        element.classList.remove('visible');
+        element.classList.add('hidden');
+      });
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/main.css":
 /*!*******************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/main.css ***!
@@ -21,25 +118,62 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `#homepage-container {
+___CSS_LOADER_EXPORT___.push([module.id, `body,
+html {
+  height: 100%;
+}
+
+#homepage-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-#nav-bar {
+#navbar-container {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1fr;
   grid-template-rows: 1;
+  align-items: center;
+  gap: 10%;
+  --box-shadow: 0 0 25px 5px;
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+}
+
+#homepage-body {
+  flex-grow: 1;
+  background-color: rgb(157, 255, 186);
+  z-index: 0;
 }
 
 .nav-item {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-container {
+  position: absolute;
+  left: 0;
+  top: 100%;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  left: 0;
+  width: 100%;
   text-align: center;
-  border-color: black;
-  border-width: 2px;
-  padding: 12px;
+  display: none;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1; /* Ensures submenu appears above other content */
+  box-shadow: 0 5px 10px 0;
 }
 
 .hidden {
@@ -48,8 +182,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#homepage-container {
 
 .visible {
   display: block;
+  /* position: absolute; */
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,QAAQ;EACR,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,aAAa;AACf;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;AAChB","sourcesContent":["#homepage-container {\n  display: flex;\n  flex-direction: column;\n}\n\n#nav-bar {\n  display: grid;\n  grid-template-columns: repeat(5, 1fr);\n  gap: 1fr;\n  grid-template-rows: 1;\n}\n\n.nav-item {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  border-color: black;\n  border-width: 2px;\n  padding: 12px;\n}\n\n.hidden {\n  display: none;\n}\n\n.visible {\n  display: block;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;;EAEE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,qCAAqC;EACrC,QAAQ;EACR,qBAAqB;EACrB,mBAAmB;EACnB,QAAQ;EACR,0BAA0B;EAC1B,6BAA6B;EAC7B,UAAU;AACZ;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,kBAAkB;EAClB,OAAO;EACP,SAAS;EACT,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,OAAO;EACP,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,sBAAsB;EACtB,kBAAkB;EAClB,UAAU,EAAE,gDAAgD;EAC5D,wBAAwB;AAC1B;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;EACd,wBAAwB;AAC1B","sourcesContent":["body,\nhtml {\n  height: 100%;\n}\n\n#homepage-container {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n\n#navbar-container {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 1fr;\n  grid-template-rows: 1;\n  align-items: center;\n  gap: 10%;\n  --box-shadow: 0 0 25px 5px;\n  box-shadow: var(--box-shadow);\n  z-index: 1;\n}\n\n#homepage-body {\n  flex-grow: 1;\n  background-color: rgb(157, 255, 186);\n  z-index: 0;\n}\n\n.nav-item {\n  position: relative;\n  text-align: center;\n  padding: 20px;\n}\n\n.menu-container {\n  position: absolute;\n  left: 0;\n  top: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.menu-item {\n  left: 0;\n  width: 100%;\n  text-align: center;\n  display: none;\n  padding: 10px;\n  background-color: #fff;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  z-index: 1; /* Ensures submenu appears above other content */\n  box-shadow: 0 5px 10px 0;\n}\n\n.hidden {\n  display: none;\n}\n\n.visible {\n  display: block;\n  /* position: absolute; */\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -778,41 +913,12 @@ module.exports = styleTagTransform;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _styles_reset_css_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/reset-css.css */ "./src/styles/reset-css.css");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-/* eslint-disable no-new */
-
-
-var weaponList = [];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weaponList);
-var Weapon = /*#__PURE__*/_createClass(function Weapon(name, options) {
-  _classCallCheck(this, Weapon);
-  this.name = name;
-  this.options = options;
-  weaponList.push(this);
-});
-new Weapon('Assault Rifles', ['AK-47', 'M16/M4', 'FN SCAR', 'Steyr AUG', 'Heckler & Koch G36', 'SIG SG 550', 'FAMAS', 'QBZ-95', 'Galil ACE', 'CZ Bren 2']);
-new Weapon('Sniper Rifles', ['Accuracy International Arctic Warfare', 'Barrett M82/M107', 'Sako TRG', 'Remington 700', 'Dragunov SVD', 'CheyTac Intervention', 'Steyr SSG', 'Heckler & Koch PSG1', 'Springfield M1903', 'Mauser SP66']);
-new Weapon('Submachine Guns', ['Heckler & Koch MP5', 'Uzi', 'MAC-10', 'FN P90', 'Heckler & Koch UMP', 'Steyr TMP', 'PP-19 Bizon', 'MP7', 'MP9', 'Scorpion EVO 3']);
-new Weapon('Pistols', ['Glock 17', 'SIG Sauer P226', 'Beretta 92/M9', 'Smith & Wesson M&P', 'Heckler & Koch USP', 'CZ 75', 'FN Five-seveN', 'Walther PPK', 'Colt M1911', 'Browning Hi-Power']);
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map
